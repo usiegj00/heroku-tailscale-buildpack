@@ -34,6 +34,7 @@ else
 
   tailscaled -verbose ${TAILSCALED_VERBOSE:-0} --tun=userspace-networking --socks5-server=localhost:1055 --socket=/tmp/tailscaled.sock &
   until tailscale up \
+    --socket=/tmp/tailscaled.sock \
     --authkey=${TAILSCALE_AUTH_KEY} \
     --hostname="$tailscale_hostname" \
     --accept-dns=${TAILSCALE_ACCEPT_DNS:-true} \
