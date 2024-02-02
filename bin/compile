@@ -73,7 +73,7 @@ mkdir -p "$BUILD_DIR/vendor/tailscale"
 export PATH="$BUILD_DIR/vendor/tailscale:$PATH"
 
 log "Fetch Tailscale"
-curl -sL "https://pkgs.tailscale.com/stable/tailscale_${TAILSCALE_BUILD_TS_VERSION}_${TAILSCALE_BUILD_TS_TARGETARCH}.tgz" \
+curl -sL "https://dl.tailscale.com/stable/tailscale_${TAILSCALE_BUILD_TS_VERSION}_${TAILSCALE_BUILD_TS_TARGETARCH}.tgz" \
   | tar -zxf - -C "${BUILD_DIR}/vendor/tailscale" --strip=1 tailscale_${TAILSCALE_BUILD_TS_VERSION}_${TAILSCALE_BUILD_TS_TARGETARCH}/tailscaled tailscale_${TAILSCALE_BUILD_TS_VERSION}_${TAILSCALE_BUILD_TS_TARGETARCH}/tailscale
 # Mark the scripts as executable.
 chmod +x "$BUILD_DIR/vendor/tailscale/tailscale"
