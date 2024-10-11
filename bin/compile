@@ -115,7 +115,7 @@ echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/app/vendor/proxychains-ng/lib";'
 
 if [[ "${TAILSCALE_BUILD_EXCLUDE_START_SCRIPT_FROM_PROFILE_D:-}" != "True" ]]; then
   # Add the line to start tailscale to the end of the file
-  echo "/app/vendor/tailscale/heroku-tailscale-start.sh" >> $BUILD_DIR/.profile.d/heroku-tailscale-buildpack.sh 2>&1 | indent
+  # echo "/app/vendor/tailscale/heroku-tailscale-start.sh" >> $BUILD_DIR/.profile.d/heroku-tailscale-buildpack.sh 2>&1 | indent
 fi
 
 pushd $CACHED_BUILD_DIR/app > /dev/null
