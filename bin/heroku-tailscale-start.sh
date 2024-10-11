@@ -32,7 +32,8 @@ else
   fi
   log "Using Tailscale hostname=$tailscale_hostname"
 
-  tailscaled -verbose ${TAILSCALED_VERBOSE:-0} --tun=userspace-networking --socks5-server=localhost:1055 --socket=/tmp/tailscaled.sock &
+  log "Disown the tailscaled process so that it does not occupy the job list and hang the shell (in the new exec.d execution environment)."
+  tailscaled -verbose ${TAILSCALED_VERBOSE:-0} --tun=userspace-networking --socks5-server=localhost:1055 --socket=/tmp/tailscaled.sock & disown
   until tailscale --socket=/tmp/tailscaled.sock \
     up \
     --authkey=${TAILSCALE_AUTH_KEY} \
