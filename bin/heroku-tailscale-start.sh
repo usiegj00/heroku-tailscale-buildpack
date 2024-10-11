@@ -52,3 +52,13 @@ else
   export ALL_PROXY=socks5://localhost:1055/
   log "Tailscale started"
 fi
+
+# Check if any arguments are provided
+if [ "$#" -gt 0 ]; then
+  # Execute the arguments as a command
+  log "Running command."
+  exec "$@"
+else
+  log "No command provided. Continuing..."
+fi
+
